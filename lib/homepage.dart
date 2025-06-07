@@ -1,72 +1,84 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-           appBar: AppBar(
+      appBar: AppBar(
         elevation: 0.2,
-        title: Text("Diego Jesus "),
-        centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 70, 107, 131),
+        title: const Text("Home Page"),
+        backgroundColor: const Color.fromARGB(255, 68, 107, 119),
         actions: <Widget>[
-          InkWell(
-            onTap: null,
-            child: new IconButton(
-              icon: Icon(
-                Icons.search,
-                color: Colors.white,
-              ), onPressed: () {  },
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.search,
+              color: Colors.white,
             ),
           ),
-          InkWell(
-            onTap: null,
-            child: new IconButton(
-              icon: Icon(
-                Icons.settings,
-                color: Colors.white,
-              ), onPressed: () {  },
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.settings,
+              color: Colors.white,
             ),
           ),
         ],
       ),
       drawer: Drawer(
         child: ListView(
-          children: [
-            UserAccountsDrawerHeader( 
-              decoration: BoxDecoration
-            (color: const Color.fromARGB(255, 76, 93, 112)),
-              accountName: Text("Diego Jesus 1296"),
-              accountEmail: Text("a.22308051281296@cbtis128.edu.mx"),
-
-              currentAccountPicture: GestureDetector(
-                child: CircleAvatar(
-                       radius: 130,
-            backgroundColor: const Color.fromARGB(255, 86, 88, 97),
-            child: CircleAvatar(
-              radius: 120,
-              backgroundImage: NetworkImage(
-                  'https://raw.githubusercontent.com/Diego-Rodriguez5/Imagenes/refs/heads/main/icono.jpg'),
-                  
-            ),
-          ),
-              ),
-              ),
-              InkWell(
-              onTap: (){},
-              child: ListTile(
-                onTap: (){Navigator.popAndPushNamed(context, "/home");},
-                leading: Icon(Icons.home, color: const Color.fromARGB(255, 51, 51, 51)),
-                title: Text("Pagina inicial"),
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              decoration: const BoxDecoration(color: Color.fromARGB(255, 82, 129, 148)),
+              accountName: const Text("Diego Rodriguez 1296"),
+              accountEmail: const Text("a.22308051281296@cbtis128.edu.mx"),
+              currentAccountPicture: const CircleAvatar(
+                radius: 120,
+                backgroundImage: NetworkImage(
+                  'https://raw.githubusercontent.com/Diego-Rodriguez5/Imagenes/refs/heads/main/icono.jpg',
+                ),
               ),
             ),
-              
-
-
+            ListTile(
+              onTap: () {
+                Navigator.popAndPushNamed(context, "/home");
+              },
+              leading: const Icon(Icons.home, color: Color.fromARGB(255, 79, 102, 128)),
+              title: const Text("Home Page"),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.popAndPushNamed(context, "/profile");
+              },
+              leading: const Icon(Icons.person, color: Colors.black),
+              title: const Text("My Profile"),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, "/news");
+              },
+              leading: const Icon(Icons.shopping_basket, color: Colors.red),
+              title: const Text("News"),
+            ),
+            const Divider(),
+            ListTile(
+              onTap: () {},
+              leading: const Icon(Icons.help, color: Colors.green),
+              title: const Text("About"),
+            ),
+            ListTile(
+              onTap: () {},
+              leading: const Icon(
+                Icons.power_settings_new,
+                color: Colors.black,
+              ),
+              title: const Text("Log out"),
+            ),
           ],
         ),
+      ),
+      body: const Center(
+        child: Text("Home Page"),
       ),
     );
   }
